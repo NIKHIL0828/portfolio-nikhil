@@ -1,0 +1,91 @@
+/* src/components/Navbar.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background-color: #1a1a1a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+.navbar-logo {
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text-color);
+  font-size: 1.1rem;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Underline effect on hover/active */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary-color);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Add styles for a hamburger menu icon if you plan to implement one for mobile */
+.nav-toggle {
+  display: none; /* Hidden on desktop */
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .nav-menu {
+    /* These styles would be toggled with JavaScript */
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    background-color: #1a1a1a;
+    padding: 1rem 0;
+  }
+
+  .nav-menu.active {
+    display: flex; /* Show menu when active */
+  }
+
+  .nav-item {
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  .nav-toggle {
+    display: block; /* Show hamburger icon on mobile */
+    /* Add styles for your hamburger icon here */
+  }
+}
